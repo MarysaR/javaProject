@@ -1,9 +1,9 @@
 package projet20;
 
-import utils.Err;
-import utils.Ok;
-import utils.Result;
-import utils.TarifException;
+import utils.errors.Err;
+import utils.errors.Ok;
+import utils.errors.Result;
+import utils.exceptions.TarifException;
 
 public class Employe extends Personne {
     private String idEmploye;

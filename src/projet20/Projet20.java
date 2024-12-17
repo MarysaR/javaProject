@@ -1,6 +1,9 @@
 package projet20;
 
-import utils.ExceptionHandler;
+import utils.exceptions.ExceptionHandler;
+import utils.errors.Err;
+import utils.errors.Ok;
+import utils.errors.Result;
 
 public class Projet20 {
     public static void main(String... args) {
@@ -27,25 +30,32 @@ public class Projet20 {
             employe.afficher();
         }
 
-        // Séparateur clair pour le calcul valide
+        // Test 1 : Calcul du salaire journalier avec des valeurs valides
         System.out.println("\n=== Test 1 : Calcul du salaire journalier avec des valeurs valides ===");
-        Double salaireJournalier = ExceptionHandler.execute(
-            () -> employe1.travailler(8, 15.5), 
+        Result<Double, String> salaireJournalierResult = ExceptionHandler.execute(
+            () -> employe1.travailler(8, 15.5),
             "Erreur lors du calcul du salaire journalier"
         );
-        if (salaireJournalier != null) {
-            System.out.println("Le salaire journalier de " + employe1.getNom() + " est : " + salaireJournalier + " €");
+
+        if (salaireJournalierResult instanceof Ok) {
+            System.out.println("Le salaire journalier de " + employe1.getNom() + " est : "
+                + ((Ok<Double, String>) salaireJournalierResult).getValue() + " €");
+        } else if (salaireJournalierResult instanceof Err) {
+            System.out.println("Erreur : " + ((Err<Double, String>) salaireJournalierResult).getError());
         }
 
-        // Séparateur clair pour le calcul invalide
+        // Test 2 : Calcul du salaire avec des valeurs invalides
         System.out.println("\n=== Test 2 : Calcul du salaire avec des valeurs invalides ===");
-        Double salaireInvalide = ExceptionHandler.execute(
-            () -> employe1.travailler(-8, 15.5), 
+        Result<Double, String> salaireInvalideResult = ExceptionHandler.execute(
+            () -> employe1.travailler(-8, 15.5),
             "Erreur lors du calcul avec des valeurs invalides"
         );
-        if (salaireInvalide == null) {
-            System.out.println("Impossible de calculer un salaire invalide.");
+
+        if (salaireInvalideResult instanceof Ok) {
+            System.out.println("Le salaire journalier de " + employe1.getNom() + " est : "
+                + ((Ok<Double, String>) salaireInvalideResult).getValue() + " €");
+        } else if (salaireInvalideResult instanceof Err) {
+            System.out.println("Erreur : " + ((Err<Double, String>) salaireInvalideResult).getError());
         }
-    
     }
 }
