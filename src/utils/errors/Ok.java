@@ -1,4 +1,4 @@
-package utils;
+package utils.errors;
 
 public final class Ok<T, E> implements Result<T, E> {
     private final T value;

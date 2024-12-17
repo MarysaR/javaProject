@@ -1,4 +1,4 @@
-package utils;
+package utils.exceptions;
 
 // Exception personnalisée pour les erreurs de tarif horaire
 public class TarifException extends Exception {
