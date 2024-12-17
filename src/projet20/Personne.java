@@ -13,6 +13,8 @@ public class Personne {
       return nom;
   }
 
+
+
   // Méthode d'affichage
   public void afficher() {
       System.out.println("Personne : " + nom);

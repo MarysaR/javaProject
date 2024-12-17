@@ -5,7 +5,7 @@ public class Employe extends Personne {
 
     // Constructeur
     public Employe(String nom, String idEmploye) {
-        super(nom); 
+        super(nom);
         this.idEmploye = idEmploye;
     }
 
@@ -19,9 +19,15 @@ public class Employe extends Personne {
         System.out.println("L'employé : \"" + getIdEmploye() + "\" demande formation : " + titreFormation);
     }
 
+    // Méthode travailler
+    public double travailler(int heuresTravaillees, double tarifHoraire) {
+        return heuresTravaillees * tarifHoraire;
+    }
+
     // Méthode d'affichage (override)
     @Override
     public void afficher() {
         System.out.println("Employé : " + getNom() + ", ID : " + idEmploye);
+        // super.afficher();
     }
 }
