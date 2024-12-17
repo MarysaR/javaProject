@@ -1,0 +1,31 @@
+# Fichiers binaires et compilés
+*.class
+*.jar
+*.war
+*.ear
+
+# Dossiers de compilation
+/bin/
+/target/
+/build/
+
+# Fichiers de configuration d'IDE
+*.iml
+.idea/
+*.project
+*.classpath
+*.settings/
+.vscode
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Logs et fichiers temporaires
+*.log
+*.tmp
+
+# Dépendances téléchargées
+lib/
+docs/
+
