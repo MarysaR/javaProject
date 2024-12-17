@@ -1,6 +1,4 @@
 # Fichiers binaires et compilés
-*.class
-*.jar
 *.war
 *.ear
 
