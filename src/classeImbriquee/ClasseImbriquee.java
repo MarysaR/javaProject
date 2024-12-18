@@ -9,7 +9,7 @@ public class ClasseImbriquee {
     }
   }
 
-  public static void Main(String[] args){
+  public static void main(String[] args){
     ClasseImbriquee.Interne interne = new ClasseImbriquee.Interne();
     System.out.println(interne.calculTTC(120));
   }
